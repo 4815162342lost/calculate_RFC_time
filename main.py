@@ -51,7 +51,7 @@ def get_data_from_files(file_name):
     try:
         active_sheet=xlsx_file['Resources involved']
     except KeyError:
-        print("Resource involved sheet is not found in file... Skipping the {file} file...".format(file=file_name))
+        termcolor.cprint("Resource involved sheet is not found in file... Skipping the {file} file...".format(file=file_name), color="red", on_color="on_white")
         return None
     need_proceed=True
     for cell_obj in active_sheet["A2:E100"]:
@@ -76,20 +76,24 @@ def get_data_from_files(file_name):
 
 def process_data():
     # get list of all files with xlsx-extention
-    print("Trying find all xlsx-file in ./RFC/RFC/ directory")
+    print("Trying find all xlsx-file in ./RFC/ directory")
     xlsx_files = glob.glob('RFC/*.xlsx')
     files_count=len(xlsx_files)
     if files_count>0:
         print("All OK, we have found {count} files".format(count=files_count))
     else:
         print("No any xlsx-files found... Nothing to do, existing...")
+        exit()
+    errors_count=0
     for idx, current_file in enumerate(xlsx_files):
-        print("Processing a {file}".format(file=current_file))
+        print("Processing a {file} file".format(file=current_file))
         #get list with data from current file, raise a function for cwrite these data to one file
         result_list=get_data_from_files(current_file)
         if not result_list:
+            termcolor.cprint("Error during processing the {file} file".format(file=current_file), color="red", on_color="on_white")
+            errors_count+=1
             continue
-        create_separate_sheet_for_each_rfc(result_list, re.sub("[^0-9]", '',re.sub(".xlsx", '', re.sub(".*/", '', current_file))), idx)
+        create_separate_sheet_for_each_rfc(result_list, re.sub("[^0-9]", '',re.sub(".xlsx", '', re.sub(".*/", '', current_file))), idx-errors_count)
 
 def create_separate_sheet_for_each_rfc(data, sheet_name, index):
     #counters for rows (index of rows)
