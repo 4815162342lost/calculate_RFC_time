@@ -8,7 +8,7 @@ And we have multiple separate teams in project (Linux team, Windows team, Virtua
 
 Customer pay for our work (for all time which was spent for working with RFC). RFC time is contain assessment, implementation, planning, internal meeting phases. Also cost depend on engineer's grade. For high grade engineer customer pay more money. EN1 -- lowest grade, EN4 -- higher. All enheneer should log spendint time in excl file in 'Resource involved' sheet as follow:
 
-<img align="left" src="https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_622.png">
+![screen](https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_622.png)
 
 For each RFC we have separate file. And on end of month we need to create the report which calculate total time which spend to RFC. And tis solution automatize this process. 
 
