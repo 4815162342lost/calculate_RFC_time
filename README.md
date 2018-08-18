@@ -13,3 +13,24 @@ Customer pay for our work (for all time which was spent for working with RFC). R
 For each RFC we have separate file. And on end of month we need to create the report which calculate total time which spend to RFC. And tis solution automatize this process. 
 
 Script read each file in ./RFC folder and create one report which contain:
+1) Total time for spending for each RFC
+2) Total spending time for each RFC grouping by grade
+3) Total spending time for each RFC grouping by engineer
+4) Total spending time for each RFC grouping by team
+5) Total spending time for each RFC grouping by task
+
+**Example:**
+![screen](https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_668.png)
+
+On **"Total_metrics"** sheet we can see summarizing metriks for all RFC:
+![screen](https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_669.png)
+
+**How to run:**
+1) Copy all RFC form to ./RFC directory:
+![screen](https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_670.png)
+2) Run the script and read output:
+![screen](https://raw.githubusercontent.com/4815162342lost/calculate_RFC_time/master/screens/Selection_671.png)
+3) Open the report file and enjoy.
+
+Thant's all.
+
